@@ -21,7 +21,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/admin','AdminController');
 
+Route::resource('/company','CompanyController');
+
 Route::get('admin_area', ['middleware' => 'admin', function () {
+    //
+}]);
+
+Route::get('company_area', ['middleware' => 'company', function () {
     //
 }]);
 

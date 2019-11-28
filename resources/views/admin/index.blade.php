@@ -7,6 +7,7 @@
         <th scope="col">Nome</th>
         <th scope="col">Email</th>
         <th scope="col">Admin?</th>
+        <th scope="col">Company?</th>
         <th scope="col">Ação</th>
     </tr>
     </thead>
@@ -17,6 +18,7 @@
             <td>{{$user->name}}</td>
             <td>{{$user->email}}</td>
             <td>{{$user->admin == 1 ? "Sim" : "Não"}}</td>
+            <td>{{$user->company == 1 ? "Sim" : "Não"}}</td>
             <td>
                 <a class="btn btn-success" href="{{route('admin.edit',$user->id)}}">Editar</a>
                 @if($user->id != Auth::id())
