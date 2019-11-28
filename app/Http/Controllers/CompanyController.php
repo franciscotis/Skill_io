@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.index',compact('users'));
+        return view('company.index',compact('users'));
     }
 
     /**
@@ -59,7 +59,7 @@ class AdminController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.edit',compact('user'));
+        return view('company.edit',compact('user'));
     }
 
     /**
