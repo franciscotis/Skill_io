@@ -16,6 +16,9 @@
                     @if(auth()->user()->admin==1)
                         Administrador Logado
                         <a href="{{route('admin.index')}} " class="btn-btn success">Mostrar Usuários</a>
+                        <a href="{{route('challenges.index')}} " class="btn-btn success">Mostrar Desafios</a>
+                        <a href="{{route('challenges.create')}} " class="btn-btn success">Criar Desafios</a>
+
                         @else
                             You are logged in!
                         @endif

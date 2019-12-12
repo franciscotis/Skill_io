@@ -23,6 +23,9 @@ Route::resource('/admin','AdminController');
 
 Route::resource('/company','CompanyController');
 
+Route::resource('/challenges','ChallengesController');
+
+
 Route::get('admin_area', ['middleware' => 'admin', function () {
     //
 }]);
