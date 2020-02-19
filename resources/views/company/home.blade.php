@@ -9,8 +9,9 @@
 
                 <div class="card-body">
                     
-                            You are logged in!
-                        
+                            COMPANY PAGE
+                            <a href="{{route('selectProf')}}" class="btn-btn success">Selecionar Profissionais</a>
+
 
                 </div>
             </div>

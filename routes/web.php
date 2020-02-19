@@ -25,7 +25,9 @@ Route::resource('/company','CompanyController');
 
 Route::resource('/challenges','ChallengesController');
 
+Route::resource('/qualities','QualitiesController');
 
+route::get('/selectProfessional','CompanyController@selectProfessional')->name('selectProf');
 Route::get('admin_area', ['middleware' => 'admin', function () {
     //
 }]);

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
-
-class CompanyController extends Controller
+use App\Quality;
+class QualitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,12 +13,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('company.index',compact('users'));
-    }
-
-    public function selectProfessional(){
-        return view('company.selectprofessionals');
+        $qualities = Quality::all();
+        return view('quality.index',compact('qualities'));
     }
 
     /**
@@ -29,7 +24,7 @@ class CompanyController extends Controller
      */
     public function create()
     {
-        //
+        return view('quality.new');
     }
 
     /**
@@ -40,7 +35,11 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $quality = new Quality();
+        $quality->name = $request->input('name');
+        $quality->description = $request->input('description');
+        $quality->save();
+        return redirect()->back();
     }
 
     /**
@@ -62,8 +61,8 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('company.edit',compact('user'));
+        $quality = Quality::find($id);
+        return view('quality.edit',compact('quality'));
     }
 
     /**
@@ -75,13 +74,11 @@ class CompanyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->admin = $request->input('admin') ? 1 : 0;
-        $user->company = $request->input('company') ? 1 : 0;
-        $user->save();
-        return redirect()->back();
+        $quality = Quality::find($id);
+        $quality->name = $request->input('name');
+        $quality->description = $request->input('description');
+        $quality->save();
+        return redirect()->route('qualities.index');
     }
 
     /**
@@ -92,8 +89,8 @@ class CompanyController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
+        $quality = Quality::find($id);
+        $quality->delete();
         return redirect()->back();
     }
 }
