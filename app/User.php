@@ -15,6 +15,10 @@ class User extends Authenticatable
      *
      * @var array
      */
+    public function qualities(){
+        return $this->belongsToMany('App\Quality','quality_users');
+    }
+
     protected $fillable = [
         'name', 'email', 'password','admin', 'company',
     ];
@@ -36,4 +40,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    
 }

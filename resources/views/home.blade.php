@@ -9,7 +9,9 @@
 
                 <div class="card-body">
                     
-                            You are logged in!
+                            Olá Usuário!
+                            <a href="{{route('myHabilities')}}" class="btn-btn success">Minhas Habilidades</a>
+
                         
 
                 </div>

@@ -27,7 +27,13 @@ Route::resource('/challenges','ChallengesController');
 
 Route::resource('/qualities','QualitiesController');
 
+Route::get('/detachQualityUser/{id}','UserController@retirarQualidade')->name('detachQualityUser');
+
+
 route::get('/selectProfessional','CompanyController@selectProfessional')->name('selectProf');
+
+route::get('/MyHabilities','UserController@habilities')->name('myHabilities');
+
 Route::get('admin_area', ['middleware' => 'admin', function () {
     //
 }]);
