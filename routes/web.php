@@ -29,6 +29,7 @@ Route::resource('/qualities','QualitiesController');
 
 Route::get('/detachQualityUser/{id}','UserController@retirarQualidade')->name('detachQualityUser');
 
+Route::post('/attachQualityUser', 'UserController@adicionarQualidade')->name('attachQualityUser');
 
 route::get('/selectProfessional','CompanyController@selectProfessional')->name('selectProf');
 

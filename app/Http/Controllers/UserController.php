@@ -17,6 +17,14 @@ class UserController extends Controller
         return view('users.habilities',compact('qualities','all_qualities'));
     }
 
+    public function adicionarQualidade(Request $data){
+        $user = User::find(auth()->user()->id);
+        if ($user->qualities()->where('quality_id', $data->idQq)->count() == 0) {
+            $user->qualities()->attach($data->idQq);
+        }
+        return redirect()->back();
+    }
+
     public function retirarQualidade($id_qualidade){
         $user = User::find(auth()->user()->id);
         $user->qualities()->detach($id_qualidade);
