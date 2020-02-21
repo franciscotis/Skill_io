@@ -35,6 +35,11 @@ route::get('/selectProfessional','CompanyController@selectProfessional')->name('
 
 route::get('/MyHabilities','UserController@habilities')->name('myHabilities');
 
+route::get('/SelectPage','UserController@selectUserPerQuality')->name('selectUserPerQuality');
+
+Route::post('/selectQualityCompany', 'UserController@selectQualityCompany')->name('selectQualityCompany');
+
+
 Route::get('admin_area', ['middleware' => 'admin', function () {
     //
 }]);
