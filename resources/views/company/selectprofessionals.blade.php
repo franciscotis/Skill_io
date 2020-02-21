@@ -11,7 +11,7 @@
                             PÁGINA DE SELEÇÃO DE PROFISSIONAIS<br/>
                             <a href="{{route('qualities.create')}}" class="btn-btn success">Criar Qualidades Requeridas</a><br/>
                             <a href="{{route('qualities.index')}}" class="btn-btn success">Verificar Qualidades cadastradas</a><br/>
-                            <a href="#" class="btn-btn success">Selecionar Profissionais conforme a qualidade</a>
+                            <a href="{{route('selectUserPerQuality')}}" class="btn-btn success">Selecionar Profissionais conforme a qualidade</a>
 
 
 

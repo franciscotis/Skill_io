@@ -29,10 +29,16 @@ Route::resource('/qualities','QualitiesController');
 
 Route::get('/detachQualityUser/{id}','UserController@retirarQualidade')->name('detachQualityUser');
 
+Route::post('/attachQualityUser', 'UserController@adicionarQualidade')->name('attachQualityUser');
 
 route::get('/selectProfessional','CompanyController@selectProfessional')->name('selectProf');
 
 route::get('/MyHabilities','UserController@habilities')->name('myHabilities');
+
+route::get('/SelectPage','UserController@selectUserPerQuality')->name('selectUserPerQuality');
+
+Route::post('/selectQualityCompany', 'UserController@selectQualityCompany')->name('selectQualityCompany');
+
 
 Route::get('admin_area', ['middleware' => 'admin', function () {
     //

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     public function qualities(){
-        return $this->belongsToMany('App\Quality','quality_users');
+        return $this->belongsToMany('App\Quality','quality_users')->withPivot('level','validated');
     }
 
     protected $fillable = [
