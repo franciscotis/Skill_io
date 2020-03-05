@@ -5046,7 +5046,8 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  /* background-color: rgba(0, 0, 0, 0.03); */
+  background-color: #70d23b4f;
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
 
@@ -11100,3 +11101,41 @@ a.text-dark:focus {
   }
 }
 
+.skillio-logo {
+  max-width: 30px;
+}
+
+.admin-card-body {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.admin-a {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.admin-tr {
+  background-color: #70d23b4f;
+}
+
+.admin-edit-td {
+  color: #3490dc;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+.admin-edit-td:hover {
+  color: #fff;
+  background-color: #3490dc;
+  border-color: #3490dc;
+}
+
+.admin-remove-td {
+  color: #dc3434;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
