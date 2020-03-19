@@ -11139,3 +11139,23 @@ a.text-dark:focus {
   background-color: transparent;
   border: none;
 }
+
+.skill-level {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.skill-level-number {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.skill-input {
+  margin-left: 5px;
+}
+
+.btn-skill {
+  margin-left: 30px;
+}

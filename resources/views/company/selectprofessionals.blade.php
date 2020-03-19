@@ -3,18 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Dashboard - Seleção de Profissionais</div>
 
-                <div class="card-body">
-                            PÁGINA DE SELEÇÃO DE PROFISSIONAIS<br/>
-                            <a href="{{route('qualities.create')}}" class="btn-btn success">Criar Qualidades Requeridas</a><br/>
-                            <a href="{{route('qualities.index')}}" class="btn-btn success">Verificar Qualidades cadastradas</a><br/>
-                            <a href="{{route('selectUserPerQuality')}}" class="btn-btn success">Selecionar Profissionais conforme a qualidade</a>
-
-
-
+                <div class="card-body admin-card-body">
+                    <a href="{{route('qualities.create')}}" class="btn-btn success admin-a"><i class="fas fa-plus-square fa-3x"></i>Criar Qualidades Requeridas</a>
+                    <a href="{{route('qualities.index')}}" class="btn-btn success admin-a"><i class="fas fa-list fa-3x"></i>Verificar Qualidades cadastradas</a>
+                    <a href="{{route('selectUserPerQuality')}}" class="btn-btn success admin-a"><i class="fas fa-user-check fa-3x"></i>Selecionar Profissionais conforme a qualidade</a>
                 </div>
             </div>
         </div>
