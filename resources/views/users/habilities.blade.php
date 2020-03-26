@@ -10,8 +10,8 @@
                         <th scope="col">Nome da qualidade</th>
                         <th scope="col">Descrição da qualidade</th>
                         <th scope="col">Nível</th>
+                        <th scope="col">Validada</th>
                         <th scope="col">Ação</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +24,7 @@
                         @foreach($qu as $qq)
                         @if($qq->quality_id == $quality->id)
                         <td>{{$qq->level}}</td>
+                            <td>{{$qq->validated == 0? "Não" : "Sim"}}</td>
                         @endif
                         @endforeach
                         <td>
