@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','IndexController@index')->name('index');
 
 Auth::routes();
 
@@ -39,6 +37,21 @@ route::get('/SelectPage','UserController@selectUserPerQuality')->name('selectUse
 
 Route::post('/selectQualityCompany', 'UserController@selectQualityCompany')->name('selectQualityCompany');
 
+Route::post('/sendCode/{id}','ChallengesController@send')->name('challenge.send');
+
+Route::get('/challengesusers','ChallengesController@challengesUsers')->name('challenges.users');
+
+Route::get('/getUsersPerMonth','AdminController@getUsersPerMonth')->name('getUsersPerMonth');
+
+Route::get('/getChallengesPerMonth','AdminController@getChallengesPerMonth')->name('getChallengesPerMonth');
+
+Route::get('/getChallengesUsersPerMonth','AdminController@getChallengesUsersPerMonth')->name('getChallengesUsersPerMonth');
+
+Route::get('/downloadCode/{id}','ChallengesController@downloadCode')->name('downloadCode');
+
+Route::get('/validateQuality/{id}/{quality}','UserController@validateQuality')->name('user.validateQuality');
+
+Route::get('/validateQ/{id}','UserController@validateQ')->name('user.validateQ');
 
 Route::get('admin_area', ['middleware' => 'admin', function () {
     //

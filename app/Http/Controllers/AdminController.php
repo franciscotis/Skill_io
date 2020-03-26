@@ -2,11 +2,48 @@
 
 namespace App\Http\Controllers;
 
+use App\Challenges;
+use App\ChallengeUser;
 use App\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+
+    public function getUsersPerMonth(Request $request){
+        if($request->ajax()){
+            $data = array();
+            for($i=1;$i<=12;$i++){
+                $theCount = User::whereMonth('created_at','=',$i)->count();
+                array_push($data,$theCount);
+            }
+            echo json_encode($data);
+        }
+    }
+
+    public function getChallengesPerMonth(Request $request){
+        if($request->ajax()){
+            $data = array();
+            for($i=1;$i<=12;$i++){
+                $theCount = Challenges::whereMonth('created_at','=',$i)->count();
+                array_push($data,$theCount);
+            }
+            echo json_encode($data);
+        }
+    }
+
+    public function getChallengesUsersPerMonth(Request $request){
+        if($request->ajax()){
+            $data = array();
+            for($i=1;$i<=12;$i++){
+                $theCount = ChallengeUser::whereMonth('created_at','=',$i)->count();
+                array_push($data,$theCount);
+            }
+            echo json_encode($data);
+        }
+    }
+
+
     /**
      * Display a listing of the resource.
      *

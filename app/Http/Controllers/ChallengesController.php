@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 use App\Challenges;
 
+use App\ChallengeUser;
+use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Http\Request;
-
+use Illuminate\Http\Response;
 class ChallengesController extends Controller
 {
     /**
@@ -51,7 +53,20 @@ class ChallengesController extends Controller
      */
     public function show($id)
     {
-        //
+        $challenge = Challenges::find($id);
+        $challenge_user = ChallengeUser::where('user_id','=',auth()->user()->id)->where('challenge_id','=',$id)->get();
+        return view('challenges.show',compact('challenge','challenge_user'));
+    }
+
+    public function challengesusers(){
+        $challenges = ChallengeUser::paginate(10);
+        return view('challenges.showUsers',compact('challenges'));
+    }
+
+    public function downloadCode($id){
+        $challenge_user = ChallengeUser::find($id);
+        $file = public_path()."/storage/".$challenge_user->code_localization;
+        return response()->download($file);
     }
 
     /**
@@ -92,6 +107,17 @@ class ChallengesController extends Controller
     {
         $challenge = Challenges::find($id);
         $challenge->delete();
+        return redirect()->back();
+    }
+
+    public function send(Request $request, $id){
+        $challenge_user = new ChallengeUser();
+        $challenge_user->user_id = auth()->user()->id;
+        $challenge_user->challenge_id = $id;
+        $path = $request->code->store('codes','public');
+        $challenge_user->code_localization = $path;
+        $challenge_user->asigned = true;
+        $challenge_user->save();
         return redirect()->back();
     }
 }

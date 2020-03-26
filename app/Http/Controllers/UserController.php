@@ -18,6 +18,21 @@ class UserController extends Controller
         return view('users.habilities',compact('qualities','all_qualities','qu'));
     }
 
+    public function validateQuality(Request $request, $id, $quality){
+        $user_quality = QualityUser::where('user_id','=',$id)->where('quality_id','=',$quality)->first();
+        $user_quality->validated = true;
+        $user_quality->save();
+        return redirect()->back();
+    }
+
+    public function validateQ($id){
+        $user = User::find($id);
+        $qualities = $user->qualities;
+        $qu = QualityUser::where('user_id','=',$id)->distinct()->get();
+        return view('users.adminHabilities',compact('qualities','user','qu'));
+
+    }
+
     public function adicionarQualidade(Request $data){
         $user = User::find(auth()->user()->id);
         if ($user->qualities()->where('quality_id', $data->idQq)->count() == 0) {
@@ -53,7 +68,6 @@ class UserController extends Controller
                 }
             }
         }
-
         foreach($qualified_users as $user){
             if(count($user->qualities)>= $qtd_quality ){
             foreach($user->qualities as $q){
@@ -66,8 +80,6 @@ class UserController extends Controller
             if(in_array($user,$qualified_users)){
                 unset($qualified_users[array_search($user,$qualified_users)]);}
             }
-        
-
         }
 
             foreach($qualified_users as $user){
@@ -79,12 +91,12 @@ class UserController extends Controller
                     }
                 }
             }
-            
-            return view('company.userselected',compact('qualified_user')); 
 
-            
+            return view('company.userselected',compact('qualified_user'));
+
+
         }
-           
+
 
 
     public function qualities(){

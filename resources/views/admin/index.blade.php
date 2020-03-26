@@ -23,6 +23,9 @@
                         <td>{{$user->admin == 1 ? "Sim" : "Não"}}</td>
                         <td>{{$user->company == 1 ? "Sim" : "Não"}}</td>
                         <td>
+                            @if(count($user->qualities)>0)
+                                <a href="{{route('user.validateQ',$user->id)}}">Validar Qualidades</a>
+                            @endif
                             <a class="btn btn-success admin-edit-td" href="{{route('admin.edit',$user->id)}}">Editar</a>
                             @if($user->id != Auth::id())
                             <form method="POST" action="{{route('admin.destroy', $user->id)}}">
