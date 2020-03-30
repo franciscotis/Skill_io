@@ -11,7 +11,7 @@
                     <p>{{$challenge->description}}</p>
                     </div>
                     <div class="card-footer">
-                        @if($challenge_user==null)
+                        @if(count($challenge_user)<1)
                             <p>Não enviado</p>
                             <form method="POST" enctype="multipart/form-data" action="{{route('challenge.send',$challenge->id)}}">
                                 @csrf
