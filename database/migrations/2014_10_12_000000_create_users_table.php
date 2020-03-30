@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
 {
-    /**
+    /**            $table->bigInteger('user_id')->unsigned();
+
      * Run the migrations.
      *
      * @return void

@@ -15,10 +15,12 @@ class CreateChallengeUsersTable extends Migration
     {
         Schema::create('challenge_users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('user_id')->unsigned();
+            $table->integer('user_id')->unsigned();
             $table->bigInteger('challenge_id')->unsigned();
             $table->string('code_localization');
             $table->boolean('asigned')->default(false);
+            $table->foreign('challenge_id')->references('id')->on('challenges');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
 
         });
